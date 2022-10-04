@@ -1,26 +1,10 @@
 package tests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HomePage;
 
-public class LoginTests {
-
-    private WebDriver driver;
-    private WebDriverWait driverWait;
-    private HomePage homePage;
-
-    @BeforeClass
-    public void preparation() {
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("https://vue-demo.daniel-avellaneda.com");
-        homePage = new HomePage(driver, driverWait);
-    }
+public class LoginTests extends BaseTest {
 
     @Test
     public void loadLoginPage() {
@@ -31,5 +15,20 @@ public class LoginTests {
 
         Assert.assertEquals(actualResult, expectedResult);
     }
+
+    @Test
+    public void checkInputTypes() {
+        String emailExpectedResult = "email";
+        String passwordExpectedResult = "password";
+
+        homePage.openLoginPage();
+        String emailActualResult = driver.findElement(By.id("email")).getAttribute("type");
+        String passwordActualResult = driver.findElement(By.id("password")).getAttribute("type");
+
+        Assert.assertEquals(emailActualResult, emailExpectedResult);
+        Assert.assertEquals(passwordActualResult, passwordExpectedResult);
+    }
+
+
 
 }

@@ -5,10 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    private WebDriver driver;
-    private WebDriverWait driverWait;
     private By homeButton = By.xpath("/html/body/div/div/div/header/div/div[3]/a[1]");
     private By aboutButton = By.xpath("/html/body/div/div/div/header/div/div[3]/a[2]");
     private By loginButton = By.xpath("/html/body/div/div/div/header/div/div[3]/a[3]");
