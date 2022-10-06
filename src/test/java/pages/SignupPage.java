@@ -74,17 +74,11 @@ public class SignupPage extends BasePage{
     }
 
     public void signup() {
-        getName().sendKeys(faker.name().firstName());
-        getEmail().sendKeys(faker.internet().emailAddress());
-        getPassword().sendKeys("55322");
-        getConfirmPassword().sendKeys("55322");
-        getSignUpButton().click();
-
-        /*getName().sendKeys("Milos Adamovic");
+        getName().sendKeys("Milos Adamovic");
         getEmail().sendKeys("milos.adamovic@itbootcamp.rs");
         getPassword().sendKeys("12346");
         getConfirmPassword().sendKeys("12346");
-        getSignUpButton().click();*/
+        getSignUpButton().click();
     }
 
     public void logout() {
