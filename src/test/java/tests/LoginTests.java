@@ -42,6 +42,18 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(urlActualResult, urlExpectedResult);
     }
 
+    @Test
+    public void displayErrorWhenPasswordIsWrong() {
+        String expectedResult = "Wrong password";
+        String urlExpectedResult = "https://vue-demo.daniel-avellaneda.com/login";
 
+        homePage.openLoginPage();
+        loginPage.loginInvalidPassword();
+        String actualResult = driver.findElement(By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li")).getText();
+        String urlActualResult = driver.getCurrentUrl();
+
+        Assert.assertEquals(actualResult, expectedResult);
+        Assert.assertEquals(urlActualResult, urlExpectedResult);
+    }
 
 }

@@ -56,4 +56,10 @@ public class LoginPage extends BasePage {
         getLoginButton().click();
     }
 
+    public void loginInvalidPassword() {
+        getEmailField().sendKeys("admin@admin.com");
+        getPasswordField().sendKeys(faker.internet().password());
+        getLoginButton().click();
+    }
+
 }
