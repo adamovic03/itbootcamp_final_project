@@ -21,6 +21,7 @@ public class HomePage extends BasePage {
     public WebDriver getDriver() {
         return driver;
     }
+
     public WebDriverWait getDriverWait() {
         return driverWait;
     }

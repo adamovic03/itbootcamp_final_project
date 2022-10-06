@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 public class LoginTests extends BaseTest {
 
     @Test
@@ -56,4 +57,19 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(urlActualResult, urlExpectedResult);
     }
 
+    @Test
+    public void login() {
+        String expectedResult = "https://vue-demo.daniel-avellaneda.com/home";
+
+        homePage.openLoginPage();
+        loginPage.login();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String actualResult = driver.getCurrentUrl();
+
+        Assert.assertEquals(actualResult, expectedResult);
+    }
 }

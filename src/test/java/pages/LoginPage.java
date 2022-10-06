@@ -22,6 +22,7 @@ public class LoginPage extends BasePage {
     public WebDriver getDriver() {
         return driver;
     }
+
     public WebDriverWait getDriverWait() {
         return driverWait;
     }
@@ -59,6 +60,12 @@ public class LoginPage extends BasePage {
     public void loginInvalidPassword() {
         getEmailField().sendKeys("admin@admin.com");
         getPasswordField().sendKeys(faker.internet().password());
+        getLoginButton().click();
+    }
+
+    public void login() {
+        getEmailField().sendKeys("admin@admin.com");
+        getPasswordField().sendKeys("12345");
         getLoginButton().click();
     }
 
