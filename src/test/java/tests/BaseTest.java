@@ -23,13 +23,16 @@ public abstract class BaseTest {
         System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://vue-demo.daniel-avellaneda.com");
+        driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         homePage = new HomePage(driver, driverWait);
+        loginPage = new LoginPage(driver, driverWait);
     }
 
     @BeforeMethod
     public void getBasePage() {
         driver.get("https://vue-demo.daniel-avellaneda.com");
+        driver.manage().deleteAllCookies();
     }
 
     @AfterClass

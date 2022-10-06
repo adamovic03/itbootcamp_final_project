@@ -1,5 +1,6 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ public class LoginPage extends BasePage {
     private By passwordField = By.id("password");
     private By loginButton = By.xpath("/html/body/div/div/main/div/div[2]/div/div/div[3]/span/form/div/div[3]/button");
     private By forgotPassword = By.xpath("/html/body/div/div/main/div/div[2]/div/div/div[3]/span/form/div/div[4]/a");
+    protected Faker faker = new Faker();
 
     public LoginPage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
@@ -41,11 +43,17 @@ public class LoginPage extends BasePage {
     }
 
     public String emailFieldType() {
-        return getEmailField().getAttribute("name");
+        return getEmailField().getAttribute("type");
     }
 
     public String passwordFieldType() {
-        return getPasswordField().getAttribute("name");
+        return getPasswordField().getAttribute("type");
+    }
+
+    public void loginInvalidUser() {
+        getEmailField().sendKeys(faker.internet().emailAddress());
+        getPasswordField().sendKeys(faker.internet().password());
+        getLoginButton().click();
     }
 
 }

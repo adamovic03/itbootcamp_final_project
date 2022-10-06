@@ -3,7 +3,6 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 public class LoginTests extends BaseTest {
 
     @Test
@@ -22,11 +21,25 @@ public class LoginTests extends BaseTest {
         String passwordExpectedResult = "password";
 
         homePage.openLoginPage();
-        String emailActualResult = driver.findElement(By.id("email")).getAttribute("type");
-        String passwordActualResult = driver.findElement(By.id("password")).getAttribute("type");
+        String emailActualResult = loginPage.emailFieldType();
+        String passwordActualResult = loginPage.passwordFieldType();
 
         Assert.assertEquals(emailActualResult, emailExpectedResult);
         Assert.assertEquals(passwordActualResult, passwordExpectedResult);
+    }
+
+    @Test
+    public void displayErrorWhenUserDoesNotExist() {
+        String expectedResult = "User does not exists";
+        String urlExpectedResult = "https://vue-demo.daniel-avellaneda.com/login";
+
+        homePage.openLoginPage();
+        loginPage.loginInvalidUser();
+        String actualResult = driver.findElement(By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li")).getText();
+        String urlActualResult = driver.getCurrentUrl();
+
+        Assert.assertEquals(actualResult, expectedResult);
+        Assert.assertEquals(urlActualResult, urlExpectedResult);
     }
 
 
