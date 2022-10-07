@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class SignupTests extends BaseTest {
 
     @Test
-    public void visitSignupPage() {
+    public void verifyThatSignupPageIsLoaded() {
         String expectedResult = "https://vue-demo.daniel-avellaneda.com/signup";
 
         startPage.openSignUpPage();
@@ -17,7 +17,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void checkInputTypes() {
+    public void verifyThatInputFieldsAreValid() {
         String emailExpectedResult = "email";
         String passwordExpectedResult = "password";
         String confirmPasswordExpectedResult = "password";
@@ -47,7 +47,7 @@ public class SignupTests extends BaseTest {
     }
 
     @Test
-    public void signup() {
+    public void verifyThatUserCanSignUpUsingValidCredentials() {
         String expectedResult = "IMPORTANT: Verify your account";
 
         startPage.openSignUpPage();

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
     @Test
-    public void loadLoginPage() {
+    public void verifyThatLoginPageIsLoaded() {
         String expectedResult = "https://vue-demo.daniel-avellaneda.com/login";
 
         startPage.openLoginPage();
@@ -17,7 +17,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void checkInputTypes() {
+    public void verifyThatInputFieldsAreValid() {
         String emailExpectedResult = "email";
         String passwordExpectedResult = "password";
 
@@ -30,7 +30,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void displayErrorWhenUserDoesNotExist() {
+    public void verifyThatUserCanNotLoginIfIsNotRegistered() {
         String expectedResult = "User does not exists";
         String urlExpectedResult = "https://vue-demo.daniel-avellaneda.com/login";
 
@@ -44,7 +44,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void displayErrorWhenPasswordIsWrong() {
+    public void verifyThatErrorMessageAppearsIfPasswordIsInvalid() {
         String expectedResult = "Wrong password";
         String urlExpectedResult = "https://vue-demo.daniel-avellaneda.com/login";
 
@@ -58,7 +58,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void login() {
+    public void verifyThatUserCanLoginUsingValidCredentials() {
         String expectedResult = "https://vue-demo.daniel-avellaneda.com/home";
 
         startPage.openLoginPage();
@@ -73,11 +73,13 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(actualResult, expectedResult);
     }
 
-    @Test(dependsOnMethods = {"login"} )
-    public void logout() {
+    @Test
+    public void verifyThatUserCanLogout() {
         String expectedResult = "https://vue-demo.daniel-avellaneda.com/login";
 
-        Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div[1]/div/header/div/div[3]/button[2]")).isDisplayed());
+        startPage.openLoginPage();
+        loginPage.login();
+        Assert.assertTrue(homePage.getLogoutButton().isDisplayed());
         driver.findElement(By.xpath("/html/body/div/div[1]/div/header/div/div[3]/button[2]")).click();
         String actualResult = driver.getCurrentUrl();
         Assert.assertEquals(actualResult, expectedResult);
