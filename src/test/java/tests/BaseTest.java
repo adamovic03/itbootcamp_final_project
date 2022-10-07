@@ -6,10 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.HomePage;
-import pages.SignupPage;
-import pages.StartPage;
-import pages.LoginPage;
+import pages.*;
 
 import java.time.Duration;
 
@@ -21,6 +18,7 @@ public abstract class BaseTest {
     protected LoginPage loginPage;
     protected SignupPage signupPage;
     protected HomePage homePage;
+    protected CitiesPage citiesPage;
 
     @BeforeClass
     public void preparation() {
@@ -33,6 +31,7 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver, driverWait);
         signupPage = new SignupPage(driver, driverWait);
         homePage = new HomePage(driver, driverWait);
+        citiesPage = new CitiesPage(driver, driverWait);
     }
 
     @BeforeMethod
