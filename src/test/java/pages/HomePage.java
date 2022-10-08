@@ -69,4 +69,8 @@ public class HomePage extends BasePage {
         driver.findElement(By.cssSelector("#list-item-112")).click();
     }
 
+    public void logout() {
+        getLogoutButton().click();
+    }
+
 }

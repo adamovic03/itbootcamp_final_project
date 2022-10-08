@@ -71,6 +71,7 @@ public class LoginTests extends BaseTest {
         String actualResult = driver.getCurrentUrl();
 
         Assert.assertEquals(actualResult, expectedResult);
+        homePage.logout();
     }
 
     @Test
@@ -80,7 +81,8 @@ public class LoginTests extends BaseTest {
         startPage.openLoginPage();
         loginPage.login();
         Assert.assertTrue(homePage.getLogoutButton().isDisplayed());
-        driver.findElement(By.xpath("/html/body/div/div[1]/div/header/div/div[3]/button[2]")).click();
+        homePage.logout();
+        //driver.findElement(By.xpath("/html/body/div/div[1]/div/header/div/div[3]/button[2]")).click();
         String actualResult = driver.getCurrentUrl();
         Assert.assertEquals(actualResult, expectedResult);
         driver.manage().deleteAllCookies();
