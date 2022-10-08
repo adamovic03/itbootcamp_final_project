@@ -41,6 +41,15 @@ public class CitiesTests extends BaseTest {
         citiesPage.logout();
     }
 
+    @Test (dependsOnMethods = {"verifyThatCityIsEdited"})
+    public void verifyThatEditedCityIsDisplayed() {
+        String expectedResult = "Mladenovac edited";
 
+        startPage.openLoginPage();
+        loginPage.login();
+        homePage.openCitiesPage();
+        String actualResult = citiesPage.getCityNameField().getText();
 
+        Assert.assertEquals(actualResult, expectedResult);
+    }
 }
