@@ -16,6 +16,7 @@ public class CitiesTests extends BaseTest {
 
         Assert.assertEquals(urlActualResult, urlExpectedResult);
         Assert.assertTrue(homePage.getLogoutButton().isDisplayed());
+        citiesPage.logout();
     }
 
     @Test
