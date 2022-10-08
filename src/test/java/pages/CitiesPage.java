@@ -14,6 +14,8 @@ public class CitiesPage extends HomePage{
             "> button.btnSave.v-btn.v-btn--text.theme--light.v-size--default.green--text.text--lighten3");
     private By editButton = By.cssSelector(".v-data-table__wrapper > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > button:nth-child(1)");
     private By confirmationMessage = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]");
+    private By deleteButton = By.cssSelector("#delete");
+    private By deleteConfirmationMessage = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]");
 
     public CitiesPage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
@@ -51,6 +53,13 @@ public class CitiesPage extends HomePage{
     public WebElement getConfirmationMessage() {
         return getDriver().findElement(confirmationMessage);
     }
+    public WebElement getDeleteButton() {
+        return getDriver().findElement(deleteButton);
+    }
+
+    public WebElement getDeleteConfirmationMessage() {
+        return getDriver().findElement(deleteConfirmationMessage);
+    }
 
 
     public void createNewCity() {
@@ -68,6 +77,16 @@ public class CitiesPage extends HomePage{
         getEditButton().click();
         driver.findElement(By.cssSelector("#name")).sendKeys(" edited");
         driver.findElement(By.cssSelector(".btnSave > span:nth-child(1)")).click();
+    }
+
+    public void searchCity() {
+        getSearchField().sendKeys("Mladenovac");
+    }
+
+    public void deleteCity() {
+        getDeleteButton().click();
+        driver.findElement(By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div " +
+                "> div.v-card__actions > button.v-btn.v-btn--text.theme--light.v-size--default.red--text.text--lighten3 > span")).click();
     }
 
 

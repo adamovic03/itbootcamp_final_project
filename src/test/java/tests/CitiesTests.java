@@ -51,5 +51,28 @@ public class CitiesTests extends BaseTest {
         String actualResult = citiesPage.getCityNameField().getText();
 
         Assert.assertEquals(actualResult, expectedResult);
+        citiesPage.logout();
     }
+
+    @Test (dependsOnMethods = {"verifyThatEditedCityIsDisplayed"})
+    public void deleteCity() {
+        String expectedResult = "Deleted successfully\nCLOSE";
+
+        startPage.openLoginPage();
+        loginPage.login();
+        homePage.openCitiesPage();
+        citiesPage.searchCity();
+
+        Assert.assertTrue(citiesPage.getCityNameField().getText().contains("Mladenovac"));
+
+        citiesPage.deleteCity();
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String actualResult = citiesPage.getDeleteConfirmationMessage().getText();
+        Assert.assertEquals(actualResult, expectedResult);
+    }
+
 }
