@@ -23,11 +23,11 @@ public class SignupTests extends BaseTest {
         String confirmPasswordExpectedResult = "password";
 
         startPage.openSignUpPage();
-        String nameActualResult = signupPage.emailFieldType();
+        String emailActualResult = signupPage.emailFieldType();
         String passwordActualResult = signupPage.passwordFieldType();
         String confirmPasswordActualResult = signupPage.confirmPasswordFieldType();
 
-        Assert.assertEquals(nameActualResult, emailExpectedResult);
+        Assert.assertEquals(emailActualResult, emailExpectedResult);
         Assert.assertEquals(passwordActualResult, passwordExpectedResult);
         Assert.assertEquals(confirmPasswordActualResult, confirmPasswordExpectedResult);
     }

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SignupPage extends BasePage{
+public class SignupPage extends BasePage {
 
     private By name = By.id("name");
     private By email = By.id("email");

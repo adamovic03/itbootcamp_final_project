@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CitiesPage extends HomePage{
+public class CitiesPage extends HomePage {
 
     private By searchField = By.id("search");
     private By addItemButton = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[1]/div[1]/div[3]/form/div[1]/button/span");
@@ -53,6 +53,7 @@ public class CitiesPage extends HomePage{
     public WebElement getConfirmationMessage() {
         return getDriver().findElement(confirmationMessage);
     }
+
     public WebElement getDeleteButton() {
         return getDriver().findElement(deleteButton);
     }
