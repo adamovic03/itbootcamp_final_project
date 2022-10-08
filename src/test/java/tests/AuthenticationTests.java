@@ -17,5 +17,12 @@ public class AuthenticationTests extends BaseTest{
         authenticationAssert();
     }
 
+    @Test
+    public void verifyThatUserCanNotOpenAdminCitiesPageIfNotLoggedIn() {
+        driver.get("https://vue-demo.daniel-avellaneda.com/admin/cities");
+        authenticationAssert();
+    }
+
+
 
 }
