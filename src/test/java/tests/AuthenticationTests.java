@@ -23,6 +23,10 @@ public class AuthenticationTests extends BaseTest{
         authenticationAssert();
     }
 
-
+    @Test
+    public void verifyThatUserCanNotOpenAdminUsersPageIfNotLoggedIn() {
+        driver.get("https://vue-demo.daniel-avellaneda.com/admin/users");
+        authenticationAssert();
+    }
 
 }
