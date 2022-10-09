@@ -75,17 +75,17 @@ public class LoginPage extends BasePage {
 
     public void setLocaleToES() {
         getLocalizationButton().click();
-        driver.findElement(By.cssSelector("#list-item-75")).click();
+        driver.findElement(By.id("list-item-75")).click();
     }
 
     public void setLocaleToEN() {
         getLocalizationButton().click();
-        driver.findElement(By.id("list-item-88")).click();
+        driver.findElement(By.id("list-item-73")).click();
     }
 
     public void setLocaleToFR() {
         getLocalizationButton().click();
-        driver.findElement(By.id("list-item-84")).click();
+        driver.findElement(By.id("list-item-77")).click();
     }
 
 
