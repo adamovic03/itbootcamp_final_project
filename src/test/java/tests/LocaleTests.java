@@ -23,6 +23,4 @@ public class LocaleTests extends BaseTest{
         Assert.assertTrue(loginPage.getHeader().getText().contains("Page d'atterrissage"));
     }
 
-
-
 }
