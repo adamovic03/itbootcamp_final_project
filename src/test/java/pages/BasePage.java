@@ -7,4 +7,6 @@ public abstract class BasePage {
 
     protected WebDriver driver;
     protected WebDriverWait driverWait;
+
+
 }

@@ -13,7 +13,6 @@ public class HomePage extends BasePage {
     private By darkModeButton = By.id("input-26");
     private By adminButton = By.cssSelector(".btnAdmin");
     private By logoutButton = By.cssSelector("button.hidden-sm-and-down:nth-child(7)");
-    private By localizationButton = By.cssSelector(".btnLocaleActivation");
 
     public HomePage() {
     }
@@ -53,10 +52,6 @@ public class HomePage extends BasePage {
 
     public WebElement getLogoutButton() {
         return getDriver().findElement(logoutButton);
-    }
-
-    public WebElement getLocalizationButton() {
-        return getDriver().findElement(localizationButton);
     }
 
     public void openCitiesPage() {
