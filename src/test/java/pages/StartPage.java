@@ -12,6 +12,8 @@ public class StartPage extends BasePage {
     private By loginButton = By.xpath("/html/body/div/div/div/header/div/div[3]/a[3]");
     private By signUpButton = By.xpath("/html/body/div/div/div/header/div/div[3]/a[4]");
     private By light_DarkModeButton = By.id("input-26");
+    private By localizationButton = By.cssSelector(".btnLocaleActivation");
+    private By header = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[1]/div[1]/h1");
 
     public StartPage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
@@ -46,6 +48,14 @@ public class StartPage extends BasePage {
         return getDriver().findElement(light_DarkModeButton);
     }
 
+    public WebElement getLocalizationButton() {
+        return getDriver().findElement(localizationButton);
+    }
+
+    public WebElement getHeader() {
+        return getDriver().findElement(header);
+    }
+
     public void goToHomePage() {
         driver.get("https://vue-demo.daniel-avellaneda.com/home");
     }
@@ -56,6 +66,21 @@ public class StartPage extends BasePage {
 
     public void openSignUpPage() {
         getSignUpButton().click();
+    }
+
+    public void setLocaleToES() {
+        getLocalizationButton().click();
+        driver.findElement(By.id("list-item-75")).click();
+    }
+
+    public void setLocaleToEN() {
+        getLocalizationButton().click();
+        driver.findElement(By.id("list-item-73")).click();
+    }
+
+    public void setLocaleToFR() {
+        getLocalizationButton().click();
+        driver.findElement(By.id("list-item-77")).click();
     }
 
 }

@@ -11,8 +11,6 @@ public class LoginPage extends BasePage {
     private By emailField = By.id("email");
     private By passwordField = By.id("password");
     private By loginButton = By.xpath("/html/body/div/div/main/div/div[2]/div/div/div[3]/span/form/div/div[3]/button");
-    private By localizationButton = By.cssSelector(".btnLocaleActivation");
-    private By header = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[1]/div[1]/h1");
     protected Faker faker = new Faker();
 
     public LoginPage(WebDriver driver, WebDriverWait driverWait) {
@@ -39,13 +37,6 @@ public class LoginPage extends BasePage {
     public WebElement getLoginButton() {
         return getDriver().findElement(loginButton);
     }
-    public WebElement getLocalizationButton() {
-        return getDriver().findElement(localizationButton);
-    }
-    public WebElement getHeader() {
-        return getDriver().findElement(header);
-    }
-
 
     public String emailFieldType() {
         return getEmailField().getAttribute("type");
@@ -73,20 +64,6 @@ public class LoginPage extends BasePage {
         getLoginButton().click();
     }
 
-    public void setLocaleToES() {
-        getLocalizationButton().click();
-        driver.findElement(By.id("list-item-75")).click();
-    }
-
-    public void setLocaleToEN() {
-        getLocalizationButton().click();
-        driver.findElement(By.id("list-item-73")).click();
-    }
-
-    public void setLocaleToFR() {
-        getLocalizationButton().click();
-        driver.findElement(By.id("list-item-77")).click();
-    }
 
 
 
