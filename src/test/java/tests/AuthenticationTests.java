@@ -1,8 +1,13 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AuthenticationTests extends BaseTest {
+
+    public void authenticationAssert() {
+        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+    }
 
     @Test
     public void verifyThatUserCanNotOpenHomePageIfNotLoggedIn() {
