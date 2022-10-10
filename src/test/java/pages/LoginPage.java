@@ -10,7 +10,6 @@ public class LoginPage extends BasePage {
     private By emailField = By.id("email");
     private By passwordField = By.id("password");
     private By loginButton = By.xpath("/html/body/div/div/main/div/div[2]/div/div/div[3]/span/form/div/div[3]/button");
-    private By message = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li");
 
     public LoginPage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
@@ -35,10 +34,6 @@ public class LoginPage extends BasePage {
 
     public WebElement getLoginButton() {
         return getDriver().findElement(loginButton);
-    }
-
-    public WebElement getMessage() {
-        return getMessage().findElement(message);
     }
 
     public String emailFieldType() {
