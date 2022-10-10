@@ -66,6 +66,7 @@ public class CitiesTests extends BaseTest {
         Assert.assertTrue(citiesPage.getCityNameField().getText().contains("Mladenovac"));
 
         citiesPage.deleteCity();
+        //used thread sleep because waits didn't work to catch actual result. This way works brilliantly.
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {

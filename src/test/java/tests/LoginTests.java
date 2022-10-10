@@ -63,6 +63,7 @@ public class LoginTests extends BaseTest {
 
         startPage.openLoginPage();
         loginPage.login();
+        //used thread sleep to load page and get URL.
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -82,12 +83,11 @@ public class LoginTests extends BaseTest {
         loginPage.login();
         Assert.assertTrue(homePage.getLogoutButton().isDisplayed());
         homePage.logout();
-        //driver.findElement(By.xpath("/html/body/div/div[1]/div/header/div/div[3]/button[2]")).click();
         String actualResult = driver.getCurrentUrl();
         Assert.assertEquals(actualResult, expectedResult);
         driver.manage().deleteAllCookies();
         startPage.goToHomePage();
-        Assert.assertTrue(driver.getCurrentUrl().equals(expectedResult));
+        Assert.assertEquals(driver.getCurrentUrl(), expectedResult);
     }
 
 }
