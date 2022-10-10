@@ -1,6 +1,5 @@
 package pages;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +13,6 @@ public class SignupPage extends BasePage {
     private By confirmPassword = By.id("confirmPassword");
     private By signUpButton = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[2]/span/form/div/div[5]/button");
     private By logoutButton = By.xpath("/html/body/div/div[1]/div/header/div/div[3]/button[1]");
-    private Faker faker = new Faker();
 
     public SignupPage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
