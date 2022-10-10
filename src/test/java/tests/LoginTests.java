@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -36,7 +35,7 @@ public class LoginTests extends BaseTest {
 
         startPage.openLoginPage();
         loginPage.loginInvalidUser();
-        String actualResult = driver.findElement(By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li")).getText();
+        String actualResult = loginPage.getMessage().getText();
         String urlActualResult = driver.getCurrentUrl();
 
         Assert.assertEquals(actualResult, expectedResult);
@@ -50,7 +49,7 @@ public class LoginTests extends BaseTest {
 
         startPage.openLoginPage();
         loginPage.loginInvalidPassword();
-        String actualResult = driver.findElement(By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li")).getText();
+        String actualResult = loginPage.getMessage().getText();
         String urlActualResult = driver.getCurrentUrl();
 
         Assert.assertEquals(actualResult, expectedResult);

@@ -2,11 +2,11 @@ package tests;
 
 import org.testng.annotations.Test;
 
-public class AuthenticationTests extends BaseTest{
+public class AuthenticationTests extends BaseTest {
 
     @Test
     public void verifyThatUserCanNotOpenHomePageIfNotLoggedIn() {
-        driver.get("https://vue-demo.daniel-avellaneda.com/home");
+        startPage.goToHomePage();
         authenticationAssert();
     }
 

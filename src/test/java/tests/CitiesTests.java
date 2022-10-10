@@ -30,7 +30,7 @@ public class CitiesTests extends BaseTest {
         citiesPage.logout();
     }
 
-    @Test (dependsOnMethods = {"verifyThatCreatedCityIsSaved"})
+    @Test(dependsOnMethods = {"verifyThatCreatedCityIsSaved"})
     public void verifyThatCityIsEdited() {
         startPage.openLoginPage();
         loginPage.login();
@@ -41,7 +41,7 @@ public class CitiesTests extends BaseTest {
         citiesPage.logout();
     }
 
-    @Test (dependsOnMethods = {"verifyThatCityIsEdited"})
+    @Test(dependsOnMethods = {"verifyThatCityIsEdited"})
     public void verifyThatEditedCityIsDisplayed() {
         String expectedResult = "Mladenovac edited";
 
@@ -54,7 +54,7 @@ public class CitiesTests extends BaseTest {
         citiesPage.logout();
     }
 
-    @Test (dependsOnMethods = {"verifyThatEditedCityIsDisplayed"})
+    @Test(dependsOnMethods = {"verifyThatEditedCityIsDisplayed"})
     public void deleteCity() {
         String expectedResult = "Deleted successfully\nCLOSE";
 

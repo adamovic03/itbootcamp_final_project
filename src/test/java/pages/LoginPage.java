@@ -11,6 +11,7 @@ public class LoginPage extends BasePage {
     private By emailField = By.id("email");
     private By passwordField = By.id("password");
     private By loginButton = By.xpath("/html/body/div/div/main/div/div[2]/div/div/div[3]/span/form/div/div[3]/button");
+    private By message = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[4]/div/div/div/div/div[1]/ul/li");
     protected Faker faker = new Faker();
 
     public LoginPage(WebDriver driver, WebDriverWait driverWait) {
@@ -38,6 +39,10 @@ public class LoginPage extends BasePage {
         return getDriver().findElement(loginButton);
     }
 
+    public WebElement getMessage() {
+        return getMessage().findElement(message);
+    }
+
     public String emailFieldType() {
         return getEmailField().getAttribute("type");
     }
@@ -63,8 +68,6 @@ public class LoginPage extends BasePage {
         getPasswordField().sendKeys("12345");
         getLoginButton().click();
     }
-
-
 
 
 }

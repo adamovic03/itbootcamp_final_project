@@ -40,6 +40,7 @@ public class SignupTests extends BaseTest {
         startPage.openSignUpPage();
         signupPage.signupWithExistingUser();
         String actualResult = driver.findElement(By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div/div[3]/div/div/div/div/div[1]/ul/li")).getText();
+        // path for error message that user is already registered.
         String urlActualResult = driver.getCurrentUrl();
 
         Assert.assertEquals(actualResult, expectedResult);
@@ -58,6 +59,7 @@ public class SignupTests extends BaseTest {
             throw new RuntimeException(e);
         }
         String actualResult = driver.findElement(By.xpath("/html/body/div/div[4]/div/div/div[1]")).getText();
+        //path for confirmation message that user is successfully registered.
 
         Assert.assertEquals(actualResult, expectedResult);
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button/span")).click();
