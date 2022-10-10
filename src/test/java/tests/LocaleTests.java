@@ -7,20 +7,20 @@ public class LocaleTests extends BaseTest {
 
     @Test
     public void verifyThatLocaleIsSetToSpanish() {
-        loginPage.setLocaleToES();
-        Assert.assertTrue(loginPage.getHeader().getText().contains("Página de aterrizaje"));
+        startPage.setLocaleToES();
+        Assert.assertTrue(startPage.getHeader().getText().contains("Página de aterrizaje"));
     }
 
     @Test
     public void verifyThatLocaleIsSetToEnglish() {
-        loginPage.setLocaleToEN();
-        Assert.assertTrue(loginPage.getHeader().getText().contains("Landing"));
+        startPage.setLocaleToEN();
+        Assert.assertTrue(startPage.getHeader().getText().contains("Landing"));
     }
 
     @Test
     public void verifyThatLocaleIsSetToFrench() {
-        loginPage.setLocaleToFR();
-        Assert.assertTrue(loginPage.getHeader().getText().contains("Page d'atterrissage"));
+        startPage.setLocaleToFR();
+        Assert.assertTrue(startPage.getHeader().getText().contains("Page d'atterrissage"));
     }
 
 }
