@@ -63,7 +63,7 @@ public class SignupTests extends BaseTest {
 
         Assert.assertEquals(actualResult, expectedResult);
         driver.findElement(By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button/span")).click();
-        //path for close button on pop - up window that appears when user is successfully registered.
+        //path for close button on pop - up window that appears when user is successfully registered
         signupPage.logout();
     }
 
