@@ -67,7 +67,7 @@ public class LoginTests extends BaseTest {
         loginPage.login();
         //used thread sleep to load page and get URL.
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

@@ -16,6 +16,7 @@ public class CitiesPage extends HomePage {
     private By confirmationMessage = By.xpath("/html/body/div/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]");
     private By deleteButton = By.cssSelector("#delete");
     private By deleteConfirmationMessage = By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[3]/div/div/div/div/div[1]");
+    private By cityField = By.id("name");
 
     public CitiesPage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
@@ -62,22 +63,29 @@ public class CitiesPage extends HomePage {
         return getDriver().findElement(deleteConfirmationMessage);
     }
 
+    public WebElement getCityField() {
+        return getDriver().findElement(cityField);
+    }
+
 
     public void createNewCity() {
         getAddItemButton().click();
-        driver.findElement(By.xpath("//*[@id=\"name\"]")).sendKeys("Mladenovac");
+        getCityField().sendKeys("Mladenovac");
+
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        //using thread sleep for button to be clickable.
         getSaveButton().click();
     }
 
     public void editCity() {
         getEditButton().click();
-        driver.findElement(By.cssSelector("#name")).sendKeys(" edited");
+        getCityField().sendKeys(" edited");
         driver.findElement(By.cssSelector(".btnSave > span:nth-child(1)")).click();
+        //path to save button.
     }
 
     public void searchCity() {
@@ -88,6 +96,7 @@ public class CitiesPage extends HomePage {
         getDeleteButton().click();
         driver.findElement(By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div " +
                 "> div.v-card__actions > button.v-btn.v-btn--text.theme--light.v-size--default.red--text.text--lighten3 > span")).click();
+        // path for confirmation button for deleting city.
     }
 
 

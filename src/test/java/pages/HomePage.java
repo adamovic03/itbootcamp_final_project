@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
 
-    private By homeButton = By.xpath("/html/body/div/div[1]/div/header/div/div[3]/a[1]");
-    private By aboutButton = By.cssSelector("a.v-btn:nth-child(2)");
     private By myProfileButton = By.cssSelector("a.v-btn:nth-child(3)");
-    private By darkModeButton = By.id("input-26");
     private By adminButton = By.cssSelector(".btnAdmin");
     private By logoutButton = By.cssSelector("button.hidden-sm-and-down:nth-child(7)");
 
@@ -30,20 +27,8 @@ public class HomePage extends BasePage {
         return driverWait;
     }
 
-    public WebElement getHomeButton() {
-        return getDriver().findElement(homeButton);
-    }
-
-    public WebElement getAboutButton() {
-        return getDriver().findElement(aboutButton);
-    }
-
     public WebElement getMyProfileButton() {
         return getDriver().findElement(myProfileButton);
-    }
-
-    public WebElement getDarkModeButton() {
-        return getDriver().findElement(darkModeButton);
     }
 
     public WebElement getAdminButton() {
@@ -66,6 +51,10 @@ public class HomePage extends BasePage {
 
     public void logout() {
         getLogoutButton().click();
+    }
+
+    public void goToMyProfilePage() {
+        getMyProfileButton().click();
     }
 
 }
